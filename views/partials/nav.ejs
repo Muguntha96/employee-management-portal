@@ -4,6 +4,13 @@
 </head>
 <body>
   <nav>
+    <i class="fa-solid fa-user-tie"></i>
+    <a 
+      href="/employees" class=<%= title === 'All Employees' ? 'active' : '' %>
+    >
+      ALL EMPLOYEES
+    </a>
+
     <% if (user) { %>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
