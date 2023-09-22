@@ -1,3 +1,4 @@
+import { populate } from "dotenv"
 import { Employee } from "../models/employee.js"
 
 function index(req,res){
@@ -13,11 +14,13 @@ function index(req,res){
     res.redirect('/employees')
   })
 }
+
 function newEmployee(req,res){
 res.render('employees/new',{
   title:'Add New Employee'
 })
 }
+
 function create(req,res){
 Employee.create(req.body)
 .then(employee =>{
@@ -28,8 +31,22 @@ Employee.create(req.body)
   res.redirect('/employees')
 })
 }
+
+function show(req,res){
+  Employee.findById(req.params.employeeId)
+  .then(employee =>{
+    res.render('employees/show',{
+      title:"Employee Detail",
+      employee:employee
+          })
+  })
+}
+
+
 export{
   index,
   newEmployee as new,
-  create
+  create,
+  show,
+edit
 }

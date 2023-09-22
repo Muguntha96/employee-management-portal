@@ -1,5 +1,43 @@
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <%- include('../partials/nav') %>
-  
-  <%- include('../partials/footer') %>
+    <main>
+      <h1>
+        <%= title %>
+      </h1>
+      <section>
+        <div>
+          <button type="submit" id="editBtn">Edit Employee</button>
+          <button type="submit" id="deleteBtn">Delete Employee</button>
+        </div>
+        <div>First Name:</div>
+        <div>
+          <%= employee.firstName %>
+        </div>
+        <div>Last Name :</div>
+        <div>
+          <%= employee.lastName %>
+        </div>
+        <div>DOB :</div>
+        <div>
+          <%= employee.dob %>
+        </div>
+        <div>Address :</div>
+        <div>
+          <%= employee.address %>
+        </div>
+        <div>Salary :</div>
+        <div>
+          <%= employee.salary %>
+        </div>
+        <div>Phone Number:</div>
+        <div>
+          <%= employee.phoneNumber %>
+        </div>
+        <div>Department :</div>
+        <div>
+          <%= employee.department %>
+        </div>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
