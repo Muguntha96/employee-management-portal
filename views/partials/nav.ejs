@@ -12,6 +12,11 @@
     </a>
 
     <% if (user) { %>
+      <a 
+      href="/employees/new" class=<%= title === 'Add New Employee' ? 'active' : '' %>
+    >
+      ADD EMPLOYEE
+    </a>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
