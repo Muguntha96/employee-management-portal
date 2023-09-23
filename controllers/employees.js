@@ -17,7 +17,7 @@ function index(req,res){
 
 function newEmployee(req,res){
 res.render('employees/new',{
-  title:'Add New Employee'
+  title:'Add New Employee',
 })
 }
 

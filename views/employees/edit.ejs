@@ -12,7 +12,7 @@
           <label for="lname-input">Last Name :</label>
           <input id="lname-input" type="text" name="lastName" value="<%= employee.lastName %>">
           <label for="dob-input">DOB :</label>
-          <input id="dob-input" type="date" name="dob" value="<%= employee.dob %>">
+          <input id="dob-input" type="date" name="dob" value="<%= employee.dob.toISOString().slice(0,10) %>">
           <label for="address-input">Address :</label>
           <textarea id="address-input" name="address" row="7" cols="50"><%= employee.address %></textarea>
           <label for="salary-input">Salary :</label>

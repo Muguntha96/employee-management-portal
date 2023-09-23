@@ -24,7 +24,7 @@
         </div>
         <div>DOB :</div>
         <div>
-          <%= employee.dob %>
+         <%= employee.dob.toISOString().slice(0,10) %>
         </div>
         <div>Address :</div>
         <div>
