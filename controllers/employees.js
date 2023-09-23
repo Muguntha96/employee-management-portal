@@ -21,8 +21,10 @@ res.render('employees/new',{
 })
 }
 
-function create(req,res){
-Employee.create(req.body)
+function createEmployee(req,res){
+  console.log(req.body)
+  req.body.manager = req.user.profile._id
+ Employee.create(req.body)
 .then(employee =>{
   res.redirect('/employees')
 })
@@ -32,10 +34,11 @@ Employee.create(req.body)
 })
 }
 
-function show(req,res){
+function showEmployee(req,res){
   Employee.findById(req.params.employeeId)
-  .then(employee =>{
-    res.render('employees/show',{
+  .populate('manager')
+   .then(employee =>{
+          res.render('employees/show',{
       title:"Employee Detail",
       employee:employee
           })
@@ -46,9 +49,10 @@ function show(req,res){
   })
 }
 
-function edit(req,res){
+function editEmployee(req,res){
   Employee.findById(req.params.employeeId)
   .then(employee =>{
+    console.log(employee)
     res.render('employees/edit',{
       title:"Edit Employee Detail",
       employee:employee
@@ -60,21 +64,35 @@ function edit(req,res){
   })
 }
 
-function update(req,res){
+function updateEmployee(req,res){
   Employee.findByIdAndUpdate(req.params.employeeId,req.body,{new:true})
   .then(employee =>{
-    res.redirect(`/employess/${employee._id}`)
+    console.log(employee)
+    res.redirect(`/employees/${employee._id}`)
   })
   .catch(err => {
     console.log(err)
     res.redirect('/employees')
   })
 }
+function removeEmployee(req,res){
+  Employee.findByIdAndDelete(req.params.employeeId)
+  .populate('manager')
+  .then( employee =>{
+    res.redirect('/employees')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/employees')
+  })
+
+}
 export{
   index,
   newEmployee as new,
-  create,
-  show,
-edit,
-update
+  createEmployee as create,
+  showEmployee as show,
+  editEmployee as edit,
+updateEmployee as update,
+removeEmployee as remove
 }

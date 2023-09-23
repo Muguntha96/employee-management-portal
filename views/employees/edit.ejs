@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <%- include('../partials/nav') %>
     <main>
-      <form id="edit-form" action="/employees/<%= employee._id %>?_method=PUT" method="POST">
+      <form action="/employees/<%= employee._id %>?_method=PUT" method="POST">
         <h1>
           <%= title %>
         </h1>

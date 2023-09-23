@@ -7,41 +7,30 @@
       </h1>
       <section>
         <div>
-          <a href="/employees/<%= employee._id %>/edit">
-            <button type="submit" id="editBtn">Edit Employee</button>
-          </a>
-          <a>
-            <button type="submit" id="deleteBtn">Delete Employee</button>
-          </a>
+          <% if (employee.manager.equals(user?.profile._id)) { %>
+            <a href="/employees/<%= employee._id %>/edit">
+              <button>Edit Employee</button>
+            </a>
+            <form action="/employees/<%= employee._id %>?_method=DELETE"
+              method="POST">
+              <button>Delete Employee</button>
+            </form>
+          <% } %>
         </div>
-        <div>First Name:</div>
-        <div>
-          <%= employee.firstName %>
-        </div>
-        <div>Last Name :</div>
-        <div>
-          <%= employee.lastName %>
-        </div>
-        <div>DOB :</div>
-        <div>
-         <%= employee.dob.toISOString().slice(0,10) %>
-        </div>
-        <div>Address :</div>
-        <div>
-          <%= employee.address %>
-        </div>
-        <div>Salary :</div>
-        <div>
-          <%= employee.salary %>
-        </div>
-        <div>Phone Number:</div>
-        <div>
-          <%= employee.phoneNumber %>
-        </div>
-        <div>Department :</div>
-        <div>
-          <%= employee.department %>
-        </div>
+              <div>First Name :</div>
+              <div><%= employee.firstName %></div>
+              <div>Last Name :</div>
+              <div><%= employee.lastName %></div>
+              <div>DOB :</div>
+              <div><%=  employee.dob.toISOString().slice(0,10)%></div>
+              <div>Address :</div>
+              <div><%= employee.address %></div>
+              <div>Salar :</div>
+              <div><%= employee.salary %></div>
+              <div>Phone Number :</div>
+              <div><%= employee.phoneNumber %></div>
+              <div>Department :</div>
+              <div><%= employee.department %></div>
       </section>
-    </main>
+       </main>
     <%- include('../partials/footer') %>
