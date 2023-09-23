@@ -8,7 +8,8 @@ router.get('/',employeesCtrl.index)
 router.get('/new',isLoggedIn,employeesCtrl.new)
 router.get('/:employeeId',employeesCtrl.show)
 router.post('/',isLoggedIn,employeesCtrl.create)
-router.put('/:employeeId/edit',employeesCtrl.edit)
+router.get('/:employeeId/edit',employeesCtrl.edit)
+router.put('/:employeeId',employeesCtrl.update)
 
 export{
   router

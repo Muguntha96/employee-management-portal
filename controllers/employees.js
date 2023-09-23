@@ -40,13 +40,41 @@ function show(req,res){
       employee:employee
           })
   })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/employees')
+  })
 }
 
+function edit(req,res){
+  Employee.findById(req.params.employeeId)
+  .then(employee =>{
+    res.render('employees/edit',{
+      title:"Edit Employee Detail",
+      employee:employee
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/employees')
+  })
+}
 
+function update(req,res){
+  Employee.findByIdAndUpdate(req.params.employeeId,req.body,{new:true})
+  .then(employee =>{
+    res.redirect(`/employess/${employee._id}`)
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/employees')
+  })
+}
 export{
   index,
   newEmployee as new,
   create,
   show,
-edit
+edit,
+update
 }

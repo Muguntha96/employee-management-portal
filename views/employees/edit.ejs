@@ -1,32 +1,36 @@
 <%- include('../partials/html-head') %>
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <%- include('../partials/nav') %>
-  <main>
-    <h1>
-      <%= title %>
-    </h1>
-    <form id="edit-form" action="/employees/<%= employee._id %>?_method=PUT" method="POST">
-      <label for="fname-input">First Name :</label>
-      <input id="fname-input" type="text" name="firstName">
-      <label for="lname-input">Last Name :</label>
-      <input id="lname-input" type="text" name="lastName">
-      <label for="dob-input">DOB :</label>
-      <input id="dob-input" type="date" name="dob">
-      <label for="address-input">Address :</label>
-      <textarea id="address-input" name="address" row="7" cols="50"></textarea>
-      <label for="salary-input">Salary :</label>
-      <input id="salary-input" type="number" name="salary">
-      <label for="phone-input">Phone Number :</label>
-      <input id="phone-input" type="number" name="phoneNumber">
-      <label for="dpt-input">Department :</label>
-      <select name="department" id="dpt-input">
-        <option value="Admin">Admin</option>
-        <option value="Finance">Finance</option>
-        <option value="Support">Support</option>
-        <option value="HR">HR</option>
-        <option value="IT">IT</option>
-      </select>
-      <button type="submit" id="add-employee">Update Employee</button>
-    </form>
-  </main>
-  <%- include('../partials/footer') %>
+    <main>
+      <form id="edit-form" action="/employees/<%= employee._id %>?_method=PUT" method="POST">
+        <h1>
+          <%= title %>
+        </h1>
+        <form id="new-form" action="/employees" method="POST">
+          <label for="fname-input">First Name :</label>
+          <input id="fname-input" type="text" name="firstName" value="<%= employee.firstName %>">
+          <label for="lname-input">Last Name :</label>
+          <input id="lname-input" type="text" name="lastName" value="<%= employee.lastName %>">
+          <label for="dob-input">DOB :</label>
+          <input id="dob-input" type="date" name="dob" value="<%= employee.dob %>">
+          <label for="address-input">Address :</label>
+          <textarea id="address-input" name="address" row="7" cols="50"><%= employee.address %></textarea>
+          <label for="salary-input">Salary :</label>
+          <input id="salary-input" type="number" name="salary" value="<%= employee.salary %>">
+          <label for="phone-input">Phone Number :</label>
+          <input id="phone-input" type="number" name="phoneNumber" value="<%= employee.phoneNumber %>">
+          <label for="dpt-input">Department :</label>
+          <select name="department" id="dpt-input">
+            <option value="<%= employee.department %>">
+              <%= employee.department %>
+            </option>
+            <option value="Admin">Admin</option>
+            <option value="Finance">Finance</option>
+            <option value="Support">Support</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+          </select>
+          <button type="submit" id="add-employee">Save Employee</button>
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
