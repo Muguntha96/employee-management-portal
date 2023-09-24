@@ -32,5 +32,40 @@
               <div>Department :</div>
               <div><%= employee.department %></div>
       </section>
+    <% if (user) { %>
+      <h2>Reviews</h2>
+    <% if (employee.manager.equals(user?.profile._id)) { %>
+      <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">
+        <label for="review-conent">Review :</label>
+        <textarea name="content" id="review-content"></textarea>
+        <button type="submit">Add Review</button>
+      </form>
+         <% } %>
+      <% if (employee.reviews.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Date</th>
+              <th>Review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% let total=0 %>
+            <% reviews.forEach(review => { %>
+              <% total +=1 %>
+             <tr>
+              <td><%= total %></td>
+              <td><%= review.createdAt.toLocaleDateString() %></td>
+              <td><%= review.content %></td>
+             </tr>
+            <% }) %>
+          </tbody>
+        </table>
+       
+      <% } %>
+     
+    <% } %>
+    
        </main>
     <%- include('../partials/footer') %>

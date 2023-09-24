@@ -1,5 +1,6 @@
 import { populate } from "dotenv"
 import { Employee } from "../models/employee.js"
+import { Review } from "../models/review.js"
 
 function index(req,res){
   Employee.find({})
@@ -38,10 +39,21 @@ function showEmployee(req,res){
   Employee.findById(req.params.employeeId)
   .populate('manager')
    .then(employee =>{
-          res.render('employees/show',{
-      title:"Employee Detail",
-      employee:employee
-          })
+    Review.find({})
+    .then(reviews =>{
+      res.render('employees/show',{
+        title:"Employee Detail",
+        employee:employee,
+        reviews:reviews
+       
+    })
+   
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+            })
+            
   })
   .catch(err => {
     console.log(err)
@@ -85,8 +97,33 @@ function removeEmployee(req,res){
     console.log(err)
     res.redirect('/employees')
   })
-
 }
+function createReview(req,res){
+  Employee.findById(req.params.employeeId)
+  .then(employee =>{
+    Review.create(req.body)
+    .then(review =>{
+      employee.reviews.push(review._id)
+      employee.save()
+      .then(()=>{
+        res.redirect(`/employees/${employee._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/employees')
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+    })
+})
+.catch(err => {
+  console.log(err)
+  res.redirect('/employees')
+})
+}  
+
 export{
   index,
   newEmployee as new,
@@ -94,5 +131,6 @@ export{
   showEmployee as show,
   editEmployee as edit,
 updateEmployee as update,
-removeEmployee as remove
+removeEmployee as remove,
+createReview
 }

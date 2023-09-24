@@ -13,7 +13,8 @@ const employeeSchema=new Schema({
     type:String,
     enum:['Admin','Finance','Support','HR','IT']
   },
-  manager:{ type: Schema.Types.ObjectId, ref: 'Profile' }
+  manager:{ type: Schema.Types.ObjectId, ref: 'Profile' },
+  reviews:[{type: Schema.Types.ObjectId, ref: 'Review'}]
  },{
   timestamps:true
 })
