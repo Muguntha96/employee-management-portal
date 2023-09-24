@@ -39,7 +39,7 @@ function showEmployee(req,res){
   Employee.findById(req.params.employeeId)
   .populate('manager')
    .then(employee =>{
-    Review.find({})
+    Review.find({_id:{$in:employee.reviews}})
     .then(reviews =>{
       res.render('employees/show',{
         title:"Employee Detail",
@@ -91,13 +91,23 @@ function removeEmployee(req,res){
   Employee.findByIdAndDelete(req.params.employeeId)
   .populate('manager')
   .then( employee =>{
-    res.redirect('/employees')
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/employees')
-  })
-}
+    Review.deleteMany({_id:{$in:employee.reviews}})
+    .then(()=>{
+      res.redirect('/employees')
+    })   
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+    })     
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+    })
+  
+  
+  }
+ 
 function createReview(req,res){
   Employee.findById(req.params.employeeId)
   .then(employee =>{
