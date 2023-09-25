@@ -34,14 +34,14 @@
           <div>Department :</div>
           <div><%= employee.department %></div>
           </section>
-        <div>
+        <div id="buttons">
           <% if (employee.manager.equals(user?.profile._id)) { %>
             <a href="/employees/<%= employee._id %>/edit">
-              <button>Edit Employee</button>
+              <button id="edit" type="submit">Edit Employee</button>
             </a>
             <form action="/employees/<%= employee._id %>?_method=DELETE"
               method="POST">
-              <button>Delete Employee</button>
+              <button id="delete" type="submit">Delete Employee</button>
             </form>
             <% } %>
         </div>
@@ -51,7 +51,7 @@
       <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">
         <label for="review-conent">Review :</label>
         <textarea name="content" id="review-content"></textarea>
-        <button type="submit">Add Review</button>
+        <button id="add-review-btn" type="submit">Add Review</button>
       </form>
          <% } %>
       <% if (employee.reviews.length) { %>

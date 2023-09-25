@@ -4,8 +4,59 @@ section {
   grid-gap: 16px;
   /* margin-left: 500px; */
 }
+button{
+  font-family: 'Libre Baskerville', serif;
+  height: 32px;
+}
 
-a,form{
+#buttons{
   display: flex;
   flex-direction: row;
+  margin: 20px;
+  gap: 45px;
+}
+
+#edit{
+  background-color: #f59342;
+}
+#delete{
+  background-color:#FF4930FF;
+}
+#edit:hover,#delete:hover,#add-review-btn:hover{
+  background-color:#424748 ;
+  color: white;
+}
+#add-review-btn{
+  background-color: #009E6FFF;
+  
+}
+form{
+  display: flex;
+  column-gap: 10px;
+}
+table {
+  border-collapse: collapse;
+  margin:20px;
+
+}
+
+td,
+th {
+  border: 3px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background-color: #063970;
+  color:white;
+  font-family: 'Mooli', sans-serif;
+  font-weight: bolder;
+}
+
+
+td{
+  background-color: white;
+  font-family: 'Mooli', sans-serif;
 }
