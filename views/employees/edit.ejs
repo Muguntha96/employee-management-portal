@@ -1,12 +1,12 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/employees/edit.css">
   <%- include('../partials/nav') %>
     <main>
-      <form action="/employees/<%= employee._id %>?_method=PUT" method="POST">
+      
         <h1>
           <%= title %>
         </h1>
-        <form id="new-form" action="/employees" method="POST">
+        <form action="/employees/<%= employee._id %>?_method=PUT" method="POST">
           <label for="fname-input">First Name :</label>
           <input id="fname-input" type="text" name="firstName" value="<%= employee.firstName %>">
           <label for="lname-input">Last Name :</label>
@@ -30,7 +30,7 @@
             <option value="HR">HR</option>
             <option value="IT">IT</option>
           </select>
-          <button type="submit" id="add-employee">Save Employee</button>
+          <button type="submit" id="save-employee">Update Employee</button>
         </form>
     </main>
     <%- include('../partials/footer') %>
