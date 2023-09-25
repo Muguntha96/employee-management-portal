@@ -1,11 +1,39 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/employees/show.css">
   <%- include('../partials/nav') %>
     <main>
-      <h1>
+        <h1>
         <%= title %>
       </h1>
+ <!-- <div id="edit-delete">
+  <% if (employee.manager.equals(user?.profile._id)) { %>
+    <a href="/employees/<%= employee._id %>/edit">
+      <button>Edit Employee</button>
+    </a>
+    <form action="/employees/<%= employee._id %>?_method=DELETE"
+      method="POST">
+      <button>Delete Employee</button>
+    </form>
+    <% } %>
+
+ </div> -->
       <section>
+               <div>First Name :</div>
+             <div><%= employee.firstName %>
+          </div>
+          <div>Last Name :</div>
+          <div><%= employee.lastName %></div>
+          <div>DOB :</div>
+          <div><%=  employee.dob.toISOString().slice(0,10)%></div>
+          <div>Address :</div>
+          <div><%= employee.address %></div>
+          <div>Salary :</div>
+          <div><%= employee.salary %></div>
+          <div>Phone Number :</div>
+          <div><%= employee.phoneNumber %></div>
+          <div>Department :</div>
+          <div><%= employee.department %></div>
+          </section>
         <div>
           <% if (employee.manager.equals(user?.profile._id)) { %>
             <a href="/employees/<%= employee._id %>/edit">
@@ -15,25 +43,9 @@
               method="POST">
               <button>Delete Employee</button>
             </form>
-          <% } %>
+            <% } %>
         </div>
-              <div>First Name :</div>
-              <div><%= employee.firstName %></div>
-              <div>Last Name :</div>
-              <div><%= employee.lastName %></div>
-              <div>DOB :</div>
-              <div><%=  employee.dob.toISOString().slice(0,10)%></div>
-              <div>Address :</div>
-              <div><%= employee.address %></div>
-              <div>Salary :</div>
-              <div><%= employee.salary %></div>
-              <div>Phone Number :</div>
-              <div><%= employee.phoneNumber %></div>
-              <div>Department :</div>
-              <div><%= employee.department %></div>
-      </section>
     <% if (user) { %>
-     
     <% if (employee.manager.equals(user?.profile._id)) { %>
       <h2>Reviews</h2>
       <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">

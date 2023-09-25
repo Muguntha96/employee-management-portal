@@ -1,0 +1,11 @@
+section {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 16px;
+  /* margin-left: 500px; */
+}
+
+a,form{
+  display: flex;
+  flex-direction: row;
+}
