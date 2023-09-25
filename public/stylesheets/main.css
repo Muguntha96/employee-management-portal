@@ -1,25 +1,21 @@
 html {
   box-sizing: border-box
 }
-
-*,
-*::after{
-  box-sizing: inherit;
-  font-family: 'Croissant One', cursive;
-}
-body{
+body {
   background-color: #6BBBFC;
   margin: 0;
-  color:black;
+  color: black;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-areas:
     "nav"
     "main";
+    font-family: 'Croissant One', cursive;
   font-size: 18px;
 }
- i {
+
+i {
   font-size: 50px;
 }
 
@@ -28,8 +24,12 @@ body > main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #e8eceb; */
-  padding: 20px;
+  background-color:#6BBBFC;
+  color: black;
+    padding: 20px;
+} 
+body>main h1:first-child {
+  margin-bottom: 50px;
 }
 body > nav {
   grid-area: nav;

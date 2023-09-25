@@ -1,0 +1,32 @@
+
+table {
+  border-collapse: collapse;
+
+}
+
+td,
+th {
+  border: 3px solid black;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  background-color: #063970;
+  color:white;
+  font-family: 'Mooli', sans-serif;
+  font-weight: bolder;
+}
+
+
+td{
+  background-color: white;
+  font-family: 'Mooli', sans-serif;
+}
+a{
+  color:black;
+}
+a:visited{
+  color: orangered;
+}
