@@ -3,18 +3,15 @@
   <% } %>
 </head>
 <body>
-  <nav>
-    <i class="fa-solid fa-user-tie"></i>
-    <a 
-      href="/employees" class=<%= title === 'All Employees' ? 'active' : '' %>
-    >
-      ALL EMPLOYEES
-    </a>
 
+  <nav>
+    <i class="fa-solid fa-people-group fa-beat" style="color: #b12556;"></i>
+      <a href="/employees" class=<%= title === 'All Employees' ? 'active' : ''%>>
+    ALL EMPLOYEES
+  </a>
     <% if (user) { %>
       <a 
-      href="/employees/new" class=<%= title === 'Add New Employee' ? 'active' : '' %>
-    >
+      href="/employees/new" class=<%= title === 'Add New Employee' ? 'active' : '' %>>
       ADD EMPLOYEE
     </a>
     <a href="/profiles">USER</a>
