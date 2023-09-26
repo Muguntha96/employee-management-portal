@@ -12,7 +12,7 @@ const employeeSchema=new Schema({
   },
   address:{type:String},
   salary:{type:Number},
-  phoneNumber:{type:Number},
+  phoneNumber:{type:String},
   department:{
     type:String,
         enum:['Admin','Finance','Support','HR','IT']

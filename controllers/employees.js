@@ -148,7 +148,20 @@ function createReview(req,res){
 }  
 function deleteReview(req,res){
   Employee.findById(req.params.employeeId)
-  
+  .then(employee =>{
+    Review.deleteOne({_id:{$in:employee.reviews}})
+    .then(()=>{
+      res.redirect(`/employees/${employee._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/employees')
+  })
 }
 
 export{

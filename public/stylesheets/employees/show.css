@@ -24,9 +24,12 @@ button{
 #delete{
   background-color:#FF4930FF;
 }
-#edit:hover,#delete:hover,#add-review-btn:hover{
+#edit:hover,#delete:hover,#add-review-btn:hover,#delete-review:hover{
   background-color:#424748 ;
   color: white;
+}
+#review-content{
+  font-family: 'Croissant One', cursive;
 }
 #add-review-btn{
   background-color: #009E6FFF;
@@ -61,4 +64,12 @@ th {
 td{
   background-color: white;
   font-family: 'Mooli', sans-serif;
+}
+
+#delete-review{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+background-color:#FF4930FF;
 }

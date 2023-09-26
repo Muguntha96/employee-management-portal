@@ -30,9 +30,11 @@
           <div>Salary :</div>
           <div><%= employee.salary %>/year</div>
           <div>Phone Number :</div>
-          <div><%= employee.phoneNumber.toString().substr(0,3) %>-<%= employee.phoneNumber.toString().substr(3,3) %>-<%= employee.phoneNumber.toString().substr(5,4) %></div>
+          <div><%= employee.phoneNumber %></div>
           <div>Department :</div>
           <div><%= employee.department %></div>
+          <div>Reporting Manager :</div>
+          <div><%= employee.manager.name %></div>
           </section>
         <div id="buttons">
           <% if (employee.manager.equals(user?.profile._id)) { %>
@@ -61,7 +63,7 @@
               <th>S.No</th>
               <th>Date</th>
               <th>Review</th>
-              <th>Delete</th>
+              <th>Delete Review</th>
             </tr>
           </thead>
           <tbody>
@@ -74,7 +76,7 @@
               <td><%= review.content %></td>
               <td>
                 <form action="/employees/<%= employee._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                  <button>Delete Review</button>
+                  <button id="delete-review">Delete</button>
                 </form>
               </td>
              </tr>
