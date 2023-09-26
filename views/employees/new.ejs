@@ -7,17 +7,17 @@
       </h1>
       <form id="new-form" action="/employees" method="POST">
         <label for="fname-input">First Name :</label>
-        <input id="fname-input" type="text" name="firstName" required>
+        <input id="fname-input" type="text" name="firstName" autocomplete="off" required>
         <label for="lname-input">Last Name :</label>
-        <input id="lname-input" type="text" name="lastName" required>
+        <input id="lname-input" type="text" name="lastName" autocomplete="off" required>
         <label for="dob-input">DOB :</label>
-        <input id="dob-input" type="date" name="dob" value="" required>
+        <input id="dob-input" type="date" name="dob" value="" autocomplete="off" required>
         <label for="address-input">Address :</label>
         <textarea id="address-input" name="address" row="7" cols="50" required></textarea>
         <label for="salary-input">Salary :</label>
-        <input id="salary-input" type="number" name="salary" required>
+        <input id="salary-input" type="number" name="salary" autocomplete="off" required>
         <label for="phone-input">Phone Number :</label>
-        <input id="phone-input" type="tel" name="phoneNumber" required>
+        <input id="phone-input" type="tel" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" size="12" autocomplete="off" required> 
         <label for="dpt-input">Department :</label>
         <select name="department" id="dpt-input">
           <option value="Admin">Admin</option>
