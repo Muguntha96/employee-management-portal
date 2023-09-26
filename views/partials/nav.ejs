@@ -6,8 +6,9 @@
 
   <nav>
     <i class="fa-solid fa-people-group fa-beat" style="color: #b12556;"></i>
-    <i id="home" class="fa-solid fa-house-chimney"></i>
-    <a href="/home"></a>
+    
+      <a href="/" class="<%= title=== 'fa-solid fa-house-chimney' ? 'active' : '' %>">
+        <i id="home" class="fa-solid fa-house-chimney"></i></a>
       <a href="/employees" class=<%= title === 'All Employees' ? 'active' : ''%>>
     ALL EMPLOYEES
   </a>
