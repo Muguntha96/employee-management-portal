@@ -73,7 +73,7 @@ nav > a.active{
   font-family: 'Libre Baskerville', serif;
 }
 
-#home-page-avatar{
+#home-page-avatar,img{
   position: relative;
   width: 53px;
 }

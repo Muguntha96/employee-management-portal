@@ -28,7 +28,7 @@
           <div>Address :</div>
           <div><%= employee.address %></div>
           <div>Salary :</div>
-          <div><%= employee.salary %></div>
+          <div><%= employee.salary %>/year</div>
           <div>Phone Number :</div>
           <div><%= employee.phoneNumber %></div>
           <div>Department :</div>
@@ -50,7 +50,7 @@
       <h2>Reviews</h2>
       <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">
         <label for="review-conent">Review :</label>
-        <textarea name="content" id="review-content"></textarea>
+        <textarea name="content" id="review-content" required></textarea>
         <button id="add-review-btn" type="submit">Add Review</button>
       </form>
          <% } %>

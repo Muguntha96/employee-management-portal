@@ -62,9 +62,10 @@ function showEmployee(req,res){
 }
 
 function editEmployee(req,res){
+  req.body.phoneNumber=
   Employee.findById(req.params.employeeId)
   .then(employee =>{
-    console.log(employee)
+       console.log(employee)
     res.render('employees/edit',{
       title:"Edit Employee Detail",
       employee:employee
@@ -77,6 +78,7 @@ function editEmployee(req,res){
 }
 
 function updateEmployee(req,res){
+  
   Employee.findByIdAndUpdate(req.params.employeeId,req.body,{new:true})
   .then(employee =>{
     console.log(employee)

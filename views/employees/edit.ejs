@@ -16,9 +16,9 @@
           <label for="address-input">Address :</label>
           <textarea id="address-input" name="address" row="7" cols="50"><%= employee.address %></textarea>
           <label for="salary-input">Salary :</label>
-          <input id="salary-input" type="number" name="salary" value="<%= employee.salary %>">
+          <input id="salary-input" type="number" name="salary" min="10000" max="100000" value="<%= employee.salary %>">
           <label for="phone-input">Phone Number :</label>
-          <input id="phone-input" type="number" name="phoneNumber" value="<%= employee.phoneNumber %>">
+          <input id="phone-input" type="tel" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" size="12" autocomplete="off" value="<%= employee.phoneNumber %>" required> 
           <label for="dpt-input">Department :</label>
           <select name="department" id="dpt-input">
             <option value="<%= employee.department %>">
