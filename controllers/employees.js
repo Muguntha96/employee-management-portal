@@ -27,7 +27,7 @@ res.render('employees/new',{
 }
 
 function createEmployee(req,res){
-  console.log(req.body)
+  req.body.phoneNumber=req.body.phoneNumber.replaceAll('-','')
   req.body.manager = req.user.profile._id
  Employee.create(req.body)
 .then(employee =>{
