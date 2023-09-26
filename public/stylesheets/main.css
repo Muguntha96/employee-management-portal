@@ -18,6 +18,9 @@ body {
 i {
   font-size: 50px;
 }
+#home{
+  font-size: 28px;
+}
 
 body > main {
   grid-area: main;

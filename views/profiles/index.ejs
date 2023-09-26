@@ -1,19 +1,43 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css">
-<%- include('../partials/nav') %>
-<main>
-  <div>
-    <% profiles.forEach(profile => { %>
-     <img
-     src="<%= profile.avatar %>" 
-     alt="<%= profile.name %>'s avatar"
-     >
-     <div>
-      <h1>
-        <%= profile.name %>
-      </h1>
-     </div>
-    <% }) %>
+<link rel="stylesheet" href="/stylesheets/profiles/index.css">
+  <%- include('../partials/nav') %>
+    <main>
+  <h1><%= title %></h1>
+      <div id="users">
+        <table>
+          <thead>
+            <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+        <% let count=1 %>
+   <% profiles.forEach(profile=> { %>
+ 
+    <tbody>
+      <tr>
+        <td><%= count++ %> .</td>
+        <td>
+            <div id="users-avatar">
+    <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
   </div>
-</main>
-<%- include('../partials/footer') %>
+        </td>
+        <td>
+  
+          <div id="user-name">
+            <h3 class="user-title">
+              <%= profile.name %>
+            </h3>
+          </div>
+        </td>
+      </tr>
+    
+    </tbody>
+
+
+ 
+    <% }) %>
+  </table>
+</div>
+    </main>
+    <%- include('../partials/footer') %>

@@ -3,7 +3,7 @@ function index(req,res){
   Profile.find({})
   .then(profiles =>{
     res.render('profiles/index',{
-      title:'Users List',
+      title:'List of Users',
       profiles:profiles
     })
   })

@@ -3,7 +3,7 @@ import * as employeesCtrl from '../controllers/employees.js'
 import { isLoggedIn } from '../middleware/middleware.js'
 
 const router=Router()
-
+router.get('/home',employeesCtrl.home)
 router.get('/',employeesCtrl.index)
 router.get('/new',employeesCtrl.new)
 router.get('/:employeeId',employeesCtrl.show)

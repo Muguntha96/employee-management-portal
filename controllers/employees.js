@@ -2,12 +2,16 @@ import { populate } from "dotenv"
 import { Employee } from "../models/employee.js"
 import { Review } from "../models/review.js"
 
+function home(req,res){
+res.redirect('/')
+}
+
 function index(req,res){
   Employee.find({})
   .then(employees =>{
     res.render('employees/index',{
       employees,
-      title:"All Employees"
+      title:"List of Employees"
     })
   })
   .catch(err => {
@@ -135,6 +139,7 @@ function createReview(req,res){
 }  
 
 export{
+  home,
   index,
   newEmployee as new,
   createEmployee as create,

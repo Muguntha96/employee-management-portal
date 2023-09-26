@@ -6,6 +6,8 @@
 
   <nav>
     <i class="fa-solid fa-people-group fa-beat" style="color: #b12556;"></i>
+    <i id="home" class="fa-solid fa-house-chimney"></i>
+    <a href="/home"></a>
       <a href="/employees" class=<%= title === 'All Employees' ? 'active' : ''%>>
     ALL EMPLOYEES
   </a>
@@ -14,7 +16,7 @@
       href="/employees/new" class=<%= title === 'Add New Employee' ? 'active' : '' %>>
       ADD EMPLOYEE
     </a>
-    <a href="/profiles">USER</a>
+    <a href="/profiles">USERS</a>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
