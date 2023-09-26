@@ -7,17 +7,17 @@
       </h1>
       <form id="new-form" action="/employees" method="POST">
         <label for="fname-input">First Name :</label>
-        <input id="fname-input" type="text" name="firstName">
+        <input id="fname-input" type="text" name="firstName" required>
         <label for="lname-input">Last Name :</label>
-        <input id="lname-input" type="text" name="lastName">
+        <input id="lname-input" type="text" name="lastName" required>
         <label for="dob-input">DOB :</label>
-        <input id="dob-input" type="date" name="dob" value="">
+        <input id="dob-input" type="date" name="dob" value="" required>
         <label for="address-input">Address :</label>
-        <textarea id="address-input" name="address" row="7" cols="50"></textarea>
+        <textarea id="address-input" name="address" row="7" cols="50" required></textarea>
         <label for="salary-input">Salary :</label>
-        <input id="salary-input" type="number" name="salary">
+        <input id="salary-input" type="number" name="salary" required>
         <label for="phone-input">Phone Number :</label>
-        <input id="phone-input" type="tel" name="phoneNumber">
+        <input id="phone-input" type="tel" name="phoneNumber" required>
         <label for="dpt-input">Department :</label>
         <select name="department" id="dpt-input">
           <option value="Admin">Admin</option>

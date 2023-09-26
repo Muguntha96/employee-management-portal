@@ -65,6 +65,9 @@ nav > a:hover {
   background-color: #424748;
 }
 
-nav > a.active {
+nav>a.active {
   color: orangered;
 } 
+#logoutbtn{
+  font-family: 'Libre Baskerville', serif;
+}
