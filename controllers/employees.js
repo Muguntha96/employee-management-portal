@@ -17,12 +17,21 @@ function index(req,res){
 }
 
 function newEmployee(req,res){
+  let date=new Date()
+  let dateofBirth=req.body.dob.toISOString().slice(0,10)
+  if((parseInt(date)-parseInt(dateofBirth)>=18))
+  {
+    req.body.dob=dateofBirth
+  }
 res.render('employees/new',{
   title:'Add New Employee',
+  dateofBirth
 })
 }
 
 function createEmployee(req,res){
+
+
   req.body.phoneNumber=req.body.phoneNumber.replaceAll('-','')
   req.body.manager = req.user.profile._id
  Employee.create(req.body)
@@ -62,10 +71,11 @@ function showEmployee(req,res){
 }
 
 function editEmployee(req,res){
-  req.body.phoneNumber=
+  
+
   Employee.findById(req.params.employeeId)
   .then(employee =>{
-       console.log(employee)
+console.log(phone)
     res.render('employees/edit',{
       title:"Edit Employee Detail",
       employee:employee
@@ -81,6 +91,7 @@ function updateEmployee(req,res){
   
   Employee.findByIdAndUpdate(req.params.employeeId,req.body,{new:true})
   .then(employee =>{
+    
     console.log(employee)
     res.redirect(`/employees/${employee._id}`)
   })
