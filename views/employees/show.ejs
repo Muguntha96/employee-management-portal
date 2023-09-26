@@ -30,7 +30,7 @@
           <div>Salary :</div>
           <div><%= employee.salary %>/year</div>
           <div>Phone Number :</div>
-          <div><%= employee.phoneNumber %></div>
+          <div><%= employee.phoneNumber.toString().substr(0,3) %>-<%= employee.phoneNumber.toString().substr(3,3) %>-<%= employee.phoneNumber.toString().substr(5,4) %></div>
           <div>Department :</div>
           <div><%= employee.department %></div>
           </section>
@@ -61,6 +61,7 @@
               <th>S.No</th>
               <th>Date</th>
               <th>Review</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -71,6 +72,11 @@
               <td><%= total %></td>
               <td><%= review.createdAt.toLocaleDateString() %></td>
               <td><%= review.content %></td>
+              <td>
+                <form action="/employees/<%= employee._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                  <button>Delete Review</button>
+                </form>
+              </td>
              </tr>
             <% }) %>
           </tbody>

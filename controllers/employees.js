@@ -17,15 +17,12 @@ function index(req,res){
 }
 
 function newEmployee(req,res){
-  let date=new Date()
-  let dateofBirth=req.body.dob.toISOString().slice(0,10)
-  if((parseInt(date)-parseInt(dateofBirth)>=18))
-  {
-    req.body.dob=dateofBirth
-  }
+let maxDate =new Date(new Date().setFullYear(new Date().getFullYear() - 18))
+let minDate = new Date(new Date().setFullYear(new Date().getFullYear() -60))
 res.render('employees/new',{
   title:'Add New Employee',
-  dateofBirth
+  maxdate : maxDate.toISOString().slice(0,10),
+  mindate : minDate.toISOString().slice(0,10)
 })
 }
 
@@ -71,14 +68,17 @@ function showEmployee(req,res){
 }
 
 function editEmployee(req,res){
-  
+  let maxDate =new Date(new Date().setFullYear(new Date().getFullYear() - 18))
+let minDate = new Date(new Date().setFullYear(new Date().getFullYear() -60))
 
   Employee.findById(req.params.employeeId)
   .then(employee =>{
-console.log(phone)
+
     res.render('employees/edit',{
       title:"Edit Employee Detail",
-      employee:employee
+      employee:employee,
+      maxdate : maxDate.toISOString().slice(0,10),
+  mindate : minDate.toISOString().slice(0,10)
     })
   })
   .catch(err => {
@@ -146,6 +146,10 @@ function createReview(req,res){
   res.redirect('/employees')
 })
 }  
+function deleteReview(req,res){
+  Employee.findById(req.params.employeeId)
+  
+}
 
 export{
   index,
@@ -155,5 +159,6 @@ export{
   editEmployee as edit,
 updateEmployee as update,
 removeEmployee as remove,
-createReview
+createReview,
+deleteReview
 }
