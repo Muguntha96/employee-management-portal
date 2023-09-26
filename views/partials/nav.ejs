@@ -17,7 +17,16 @@
       href="/employees/new" class=<%= title === 'Add New Employee' ? 'active' : '' %>>
       ADD EMPLOYEE
     </a>
+  
     <a href="/profiles">USERS</a>
+    <% if (user?.profile.avatar) { %>
+      <div>
+        <img id="home-page-avatar"
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
+      </div>
+    <% } %>
       <a href="/auth/logout" class="right">
         Logout
       </a>

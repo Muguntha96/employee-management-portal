@@ -64,10 +64,16 @@ nav > a:hover {
   color: white;
   background-color: #424748;
 }
+nav > a.active{
+  background-color: white;
+  color: purple;
+}
 
-nav>a.active {
-  color: orangered;
-} 
 #logoutbtn{
   font-family: 'Libre Baskerville', serif;
+}
+
+#home-page-avatar{
+  position: relative;
+  width: 53px;
 }
