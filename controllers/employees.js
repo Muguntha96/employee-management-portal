@@ -17,6 +17,8 @@ function index(req,res){
 }
 
 function newEmployee(req,res){
+
+  if(req.body.manager=req.user.profile._id){
 let maxDate =new Date(new Date().setFullYear(new Date().getFullYear() - 18))
 let minDate = new Date(new Date().setFullYear(new Date().getFullYear() -60))
 res.render('employees/new',{
@@ -24,6 +26,11 @@ res.render('employees/new',{
   maxdate : maxDate.toISOString().slice(0,10),
   mindate : minDate.toISOString().slice(0,10)
 })
+}
+else{
+  res.redirect('/')
+  throw new Error ('🚫 Not authorized 🚫')
+}
 }
 
 function createEmployee(req,res){
@@ -33,7 +40,7 @@ function createEmployee(req,res){
   req.body.manager = req.user.profile._id
  Employee.create(req.body)
 .then(employee =>{
-  res.redirect('/employees')
+    res.redirect('/employees')
 })
 .catch(err => {
   console.log(err)
@@ -75,33 +82,47 @@ let minDate = new Date(new Date().setFullYear(new Date().getFullYear() -60))
 
   Employee.findById(req.params.employeeId)
   .then(employee =>{
-
-    res.render('employees/edit',{
-      title:"Edit Employee Detail",
-      employee:employee,
-      maxdate : maxDate.toISOString().slice(0,10),
-  mindate : minDate.toISOString().slice(0,10)
+    if(employee.manager.equals(req.user.profile._id)){
+      res.render('employees/edit',{
+        title:"Edit Employee Detail",
+        employee:employee,
+        maxdate : maxDate.toISOString().slice(0,10),
+    mindate : minDate.toISOString().slice(0,10)
+      
     })
+  } else {
+    throw new Error('🚫 Not authorized 🚫')
+  }
+  
   })
   .catch(err => {
     console.log(err)
     res.redirect('/employees')
+  })
+
+    }
+
+ 
+function updateEmployee(req,res){
+  Employee.findById(req.params.employeeId)
+  .then(employee =>{
+    if(employee.manager.equals(req.user.profile._id)){
+      employee.updateOne(req.body)
+    
+    .then(()=>{
+      res.redirect(`/employees/${employee._id}`)
+    })}
+      else {
+        throw new Error('🚫 Not authorized 🚫')
+      }
+    
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/employees`)
   })
 }
 
-function updateEmployee(req,res){
-  
-  Employee.findByIdAndUpdate(req.params.employeeId,req.body,{new:true})
-  .then(employee =>{
-    
-    console.log(employee)
-    res.redirect(`/employees/${employee._id}`)
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/employees')
-  })
-}
 function removeEmployee(req,res){
   Employee.findByIdAndDelete(req.params.employeeId)
   
@@ -157,12 +178,16 @@ function deleteReview(req,res){
       .then( ()=>{
         res.redirect(`/employees/${empId}`)
       })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/employees')
+      })
     })
-    // employee.reviews.deleteMany({_id:req.params.reviewId})
-
-    
-    
-   }
+    .catch(err => {
+      console.log(err)
+      res.redirect('/employees')
+    })
+      }
 
 
 
