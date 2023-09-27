@@ -45,13 +45,15 @@ function showEmployee(req,res){
   Employee.findById(req.params.employeeId)
   .populate('manager')
    .then(employee =>{
+   
     Review.find({_id:{$in:employee.reviews}})
     .then(reviews =>{
+      console.log(employee)
+      console.log(reviews)
       res.render('employees/show',{
         title:"Employee Detail",
         employee:employee,
-        reviews:reviews
-       
+        reviews:reviews       
     })
    
     })
@@ -102,7 +104,7 @@ function updateEmployee(req,res){
 }
 function removeEmployee(req,res){
   Employee.findByIdAndDelete(req.params.employeeId)
-  .populate('manager')
+  
   .then( employee =>{
     Review.deleteMany({_id:{$in:employee.reviews}})
     .then(()=>{
@@ -145,24 +147,26 @@ function createReview(req,res){
   console.log(err)
   res.redirect('/employees')
 })
-}  
+} 
+
 function deleteReview(req,res){
-  Employee.findById(req.params.employeeId)
-  .then(employee =>{
-    Review.deleteOne({_id:{$in:employee.reviews}})
-    .then(()=>{
-      res.redirect(`/employees/${employee._id}`)
+  let empId=req.params.employeeId
+  Review.findByIdAndDelete(req.params.reviewId)
+  .then(() =>{
+    Employee.updateMany({},{$pull:{'reviews':{$in:[req.params.reviewId]}}})
+      .then( ()=>{
+        res.redirect(`/employees/${empId}`)
+      })
     })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/employees')
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/employees')
-  })
-}
+    // employee.reviews.deleteMany({_id:req.params.reviewId})
+
+    
+    
+   }
+
+
+
+
 
 export{
   index,

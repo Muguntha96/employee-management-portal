@@ -5,18 +5,9 @@
         <h1>
         <%= title %>
       </h1>
- <!-- <div id="edit-delete">
-  <% if (employee.manager.equals(user?.profile._id)) { %>
-    <a href="/employees/<%= employee._id %>/edit">
-      <button>Edit Employee</button>
-    </a>
-    <form action="/employees/<%= employee._id %>?_method=DELETE"
-      method="POST">
-      <button>Delete Employee</button>
-    </form>
-    <% } %>
 
- </div> -->
+
+ </div>
       <section>
                <div>First Name :</div>
              <div><%= employee.firstName %>
@@ -55,7 +46,7 @@
         <textarea name="content" id="review-content" required></textarea>
         <button id="add-review-btn" type="submit">Add Review</button>
       </form>
-         <% } %>
+         
       <% if (employee.reviews.length) { %>
         <table>
           <thead>
@@ -84,9 +75,12 @@
           </tbody>
         </table>
        
+      <% } else {%>
+      
+        <h3>No Reviews Yet</h3>
       <% } %>
      
     <% } %>
-    
+    <% } %>
        </main>
     <%- include('../partials/footer') %>
