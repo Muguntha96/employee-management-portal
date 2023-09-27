@@ -17,8 +17,6 @@ function index(req,res){
 }
 
 function newEmployee(req,res){
-
-  if(req.body.manager=req.user.profile._id){
 let maxDate =new Date(new Date().setFullYear(new Date().getFullYear() - 18))
 let minDate = new Date(new Date().setFullYear(new Date().getFullYear() -60))
 res.render('employees/new',{
@@ -26,11 +24,6 @@ res.render('employees/new',{
   maxdate : maxDate.toISOString().slice(0,10),
   mindate : minDate.toISOString().slice(0,10)
 })
-}
-else{
-  res.redirect('/')
-  throw new Error ('🚫 Not authorized 🚫')
-}
 }
 
 function createEmployee(req,res){

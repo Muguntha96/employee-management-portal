@@ -4,7 +4,7 @@ import { isLoggedIn } from '../middleware/middleware.js'
 
 const router=Router()
 router.get('/',employeesCtrl.index)
-router.get('/new',employeesCtrl.new)
+router.get('/new',isLoggedIn,employeesCtrl.new)
 router.get('/:employeeId',employeesCtrl.show)
 router.post('/',isLoggedIn,employeesCtrl.create)
 router.post('/:employeeId/reviews',isLoggedIn,employeesCtrl.createReview)
