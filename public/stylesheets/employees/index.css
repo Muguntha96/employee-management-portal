@@ -1,4 +1,3 @@
-
 table {
   border-collapse: collapse;
 
@@ -14,19 +13,20 @@ th {
 
 th {
   background-color: #063970;
-  color:white;
+  color: white;
   font-family: 'Mooli', sans-serif;
   font-weight: bolder;
 }
 
-
-td{
+td {
   background-color: white;
   font-family: 'Mooli', sans-serif;
 }
-a{
-  color:black;
+
+a {
+  color: black;
 }
-a:visited{
+
+a:visited {
   color: orangered;
 }

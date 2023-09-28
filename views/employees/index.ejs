@@ -1,40 +1,43 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/employees/index.css">
-<%- include('../partials/nav') %>
-<main>
-  <h1><%= title %></h1>
-  <table id="employees-list">
-    <thead>
-        <tr>
-          <th>Employee ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Department</th>
-          <th>Detail</th>
-         </tr>
-    </thead>
-    <tbody>
-      <% let count=0 %>
-      <% employees.forEach(employee => { %>
-        <% count=count+1 %>
-        <tr>
-          <td><%= count %></td>
-          <td>
-            <%= employee.firstName %>
-          </td>
-          <td>
-            <%= employee.lastName %>
-          </td>
-          <td>
-            <%= employee.department %>
-          </td>
-          <td>
-            <a href="/employees/<%= employee._id %>">Detail</a>
-          </td>
-              </tr>
-            <% }) %>
-    </tbody>
-  </table>
-</main>
-
-<%- include('../partials/footer') %>
+  <link rel="stylesheet" href="/stylesheets/employees/index.css">
+  <%- include('../partials/nav') %>
+    <main>
+      <h1>
+        <%= title %>
+      </h1>
+      <table id="employees-list">
+        <thead>
+          <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let count=0 %>
+            <% employees.forEach(employee=> { %>
+              <% count=count+1 %>
+                <tr>
+                  <td>
+                    <%= count %>
+                  </td>
+                  <td>
+                    <%= employee.firstName %>
+                  </td>
+                  <td>
+                    <%= employee.lastName %>
+                  </td>
+                  <td>
+                    <%= employee.department %>
+                  </td>
+                  <td>
+                    <a href="/employees/<%= employee._id %>">Detail</a>
+                  </td>
+                </tr>
+                <% }) %>
+        </tbody>
+      </table>
+    </main>
+    <%- include('../partials/footer') %>

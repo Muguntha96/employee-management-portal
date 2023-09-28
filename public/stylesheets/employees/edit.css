@@ -2,19 +2,21 @@ form {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
-  /* font-size: x-large; */
 }
-input,select{
+
+input,
+select {
   width: 150px;
   font-family: 'Libre Baskerville', serif;
-  
 }
-textarea{
+
+textarea {
   width: 200px;
   height: 50px;
   font-family: 'Libre Baskerville', serif;
 }
-#save-employee{
+
+#save-employee {
   display: grid;
   align-items: center;
   margin-top: 40px;
@@ -27,7 +29,8 @@ textarea{
   font-family: 'Libre Baskerville', serif;
   font-size: large;
 }
-#save-employee:hover{
+
+#save-employee:hover {
   background-color: #424748;
   color: white;
 }

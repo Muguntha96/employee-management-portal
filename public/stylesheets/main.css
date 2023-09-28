@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box
 }
+
 body {
   background-color: #6BBBFC;
   margin: 0;
@@ -11,44 +12,48 @@ body {
   grid-template-areas:
     "nav"
     "main";
-    font-family: 'Croissant One', cursive;
+  font-family: 'Croissant One', cursive;
   font-size: 18px;
 }
 
 i {
   font-size: 50px;
 }
-#home{
+
+#home {
   font-size: 28px;
 }
 
-body > main {
+body>main {
   grid-area: main;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:#6BBBFC;
+  background-color: #6BBBFC;
   color: black;
-    padding: 20px;
-} 
+  padding: 20px;
+}
+
 body>main h1:first-child {
   margin-bottom: 50px;
 }
-body > nav {
+
+body>nav {
   grid-area: nav;
-  background-color:#B5DDFD;
-   display: flex;
+  background-color: #B5DDFD;
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
 }
+
 nav>i {
   width: 34px;
   object-fit: contain;
   margin-right: auto;
 }
 
-nav > a {
+nav>a {
   margin: 20px;
   text-decoration: none;
   padding: 10px;
@@ -56,19 +61,22 @@ nav > a {
   color: #000000;
   font-weight: bolder;
 }
-nav > a:visited {
+
+nav>a:visited {
   color: #424748;
 }
 
-nav > a:hover {
+nav>a:hover {
   color: white;
   background-color: #424748;
 }
-#logoutbtn{
+
+#logoutbtn {
   font-family: 'Libre Baskerville', serif;
 }
 
-#home-page-avatar,img{
+#home-page-avatar,
+img {
   position: relative;
   width: 53px;
 }

@@ -1,86 +1,102 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/employees/show.css">
+  <link rel="stylesheet" href="/stylesheets/employees/show.css">
   <%- include('../partials/nav') %>
     <main>
-        <h1>
+      <h1>
         <%= title %>
       </h1>
-
-
- </div>
+      </div>
       <section>
-               <div>First Name :</div>
-             <div><%= employee.firstName %>
-          </div>
-          <div>Last Name :</div>
-          <div><%= employee.lastName %></div>
-          <div>DOB :</div>
-          <div><%=  employee.dob.toISOString().slice(0,10)%></div>
-          <div>Address :</div>
-          <div><%= employee.address %></div>
-          <div>Salary :</div>
-          <div><%= employee.salary %>/year</div>
-          <div>Phone Number :</div>
-          <div><%= employee.phoneNumber %></div>
-          <div>Department :</div>
-          <div><%= employee.department %></div>
-          <div>Reporting Manager :</div>
-          <div><%= employee.manager.name %></div>
-          </section>
-        <div id="buttons">
-          <% if (employee.manager.equals(user?.profile._id)) { %>
-            <a href="/employees/<%= employee._id %>/edit">
-              <button id="edit" type="submit">Edit Employee</button>
-            </a>
-            <form action="/employees/<%= employee._id %>?_method=DELETE"
-              method="POST">
-              <button id="delete" type="submit">Delete Employee</button>
-            </form>
-            <% } %>
+        <div>First Name :</div>
+        <div>
+          <%= employee.firstName %>
         </div>
-    <% if (user) { %>
-    <% if (employee.manager.equals(user?.profile._id)) { %>
-      <h2>Reviews</h2>
-      <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">
-        <label for="review-conent">Review :</label>
-        <textarea name="content" id="review-content" required></textarea>
-        <button id="add-review-btn" type="submit">Add Review</button>
-      </form>
-         
-      <% if (employee.reviews.length) { %>
-        <table>
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Date</th>
-              <th>Review</th>
-              <th>Delete Review</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% let total=0 %>
-            <% reviews.forEach(review => { %>
-              <% total +=1 %>
-             <tr>
-              <td><%= total %></td>
-              <td><%= review.createdAt.toLocaleDateString() %></td>
-              <td><%= review.content %></td>
-              <td>
-                <form action="/employees/<%= employee._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                  <button id="delete-review">Delete</button>
-                </form>
-              </td>
-             </tr>
-            <% }) %>
-          </tbody>
-        </table>
-       
-      <% } else {%>
-      
-        <h3>No Reviews Yet</h3>
-      <% } %>
-     
-    <% } %>
-    <% } %>
-       </main>
+        <div>Last Name :</div>
+        <div>
+          <%= employee.lastName %>
+        </div>
+        <div>DOB :</div>
+        <div>
+          <%= employee.dob.toISOString().slice(0,10)%>
+        </div>
+        <div>Address :</div>
+        <div>
+          <%= employee.address %>
+        </div>
+        <div>Salary :</div>
+        <div>
+          <%= employee.salary %>/year
+        </div>
+        <div>Phone Number :</div>
+        <div>
+          <%= employee.phoneNumber.toString().substring(0,3) %>-<%= employee.phoneNumber.toString().substring(3,6) %>-
+              <%= employee.phoneNumber.toString().substring(6) %>
+        </div>
+        <div>Department :</div>
+        <div>
+          <%= employee.department %>
+        </div>
+        <div>Reporting Manager :</div>
+        <div>
+          <%= employee.manager.name %>
+        </div>
+      </section>
+      <div id="buttons">
+        <% if (employee.manager.equals(user?.profile._id)) { %>
+          <a href="/employees/<%= employee._id %>/edit">
+            <button id="edit" type="submit">Edit Employee</button>
+          </a>
+          <form action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
+            <button id="delete" type="submit">Delete Employee</button>
+          </form>
+          <% } %>
+      </div>
+      <% if (user) { %>
+        <% if (employee.manager.equals(user?.profile._id)) { %>
+          <h2>Reviews</h2>
+          <form id="add-review" action="/employees/<%= employee._id %>/reviews" method="POST">
+            <label for="review-conent">Review :</label>
+            <textarea name="content" id="review-content" required></textarea>
+            <button id="add-review-btn" type="submit">Add Review</button>
+          </form>
+          <% if (employee.reviews.length) { %>
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Date</th>
+                  <th>Review</th>
+                  <th>Delete Review</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% let total=0 %>
+                  <% reviews.forEach(review=> { %>
+                    <% total +=1 %>
+                      <tr>
+                        <td>
+                          <%= total %>
+                        </td>
+                        <td>
+                          <%= review.createdAt.toLocaleDateString() %>
+                        </td>
+                        <td>
+                          <%= review.content %>
+                        </td>
+                        <td>
+                          <form action="/employees/<%= employee._id %>/reviews/<%= review._id %>?_method=DELETE"
+                            method="POST">
+                            <button id="delete-review">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                      <% }) %>
+              </tbody>
+            </table>
+            <% } else {%>
+              <h3>No Reviews Yet</h3>
+              <% } %>
+                <% } %>
+                  <% } %>
+    </main>
     <%- include('../partials/footer') %>

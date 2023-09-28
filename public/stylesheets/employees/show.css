@@ -6,43 +6,51 @@ section {
   align-items: center;
   margin-left: 70px;
 }
-button{
+
+button {
   font-family: 'Libre Baskerville', serif;
   height: 32px;
 }
 
-#buttons{
+#buttons {
   display: flex;
   flex-direction: row;
   margin: 20px;
   gap: 60px;
 }
 
-#edit{
+#edit {
   background-color: #f59342;
 }
-#delete{
-  background-color:#FF4930FF;
+
+#delete {
+  background-color: #FF4930FF;
 }
-#edit:hover,#delete:hover,#add-review-btn:hover,#delete-review:hover{
-  background-color:#424748 ;
+
+#edit:hover,
+#delete:hover,
+#add-review-btn:hover,
+#delete-review:hover {
+  background-color: #424748;
   color: white;
 }
-#review-content{
+
+#review-content {
   font-family: 'Croissant One', cursive;
 }
-#add-review-btn{
+
+#add-review-btn {
   background-color: #009E6FFF;
-  
 }
-form{
+
+form {
   display: flex;
   column-gap: 20px;
 }
+
 table {
   border-collapse: collapse;
-  margin:20px;
-
+  margin: 20px;
 }
 
 td,
@@ -55,21 +63,20 @@ th {
 
 th {
   background-color: #063970;
-  color:white;
+  color: white;
   font-family: 'Mooli', sans-serif;
   font-weight: bolder;
 }
 
-
-td{
+td {
   background-color: white;
   font-family: 'Mooli', sans-serif;
 }
 
-#delete-review{
+#delete-review {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 25px;
-background-color:#FF4930FF;
+  background-color: #FF4930FF;
 }

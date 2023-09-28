@@ -1,8 +1,10 @@
 main {
-display: flex;
-margin:10px
-    }
-#users-avatar,#user-name{
+  display: flex;
+  margin: 10px
+}
+
+#users-avatar,
+#user-name {
   display: flex;
   flex-direction: row;
   font-size: 15px;

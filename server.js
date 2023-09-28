@@ -16,7 +16,7 @@ import { passDataToView } from './middleware/middleware.js'
 import './config/database.js'
 
 // load passport
-import'./config/passport.js'
+import './config/passport.js'
 
 // import routes
 import { router as indexRouter } from './routes/index.js'
@@ -62,8 +62,8 @@ app.use(passDataToView)
 // mount imported routes
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
-app.use('/employees',employeeRouter)
-app.use('/profiles',profilesRouter)
+app.use('/employees', employeeRouter)
+app.use('/profiles', profilesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -85,6 +85,6 @@ app.use(function (err, req, res, next) {
   })
 })
 
-export { 
-  app 
+export {
+  app
 }
