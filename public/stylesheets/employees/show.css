@@ -4,12 +4,16 @@ section {
   grid-gap: 16px;
   position: relative;
   align-items: center;
-  margin-left: 70px;
+  padding-left: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 button {
   font-family: 'Libre Baskerville', serif;
-  height: 32px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 #buttons {
@@ -24,7 +28,8 @@ button {
 }
 
 #delete {
-  background-color: #FF4930FF;
+  background-color: #bd0d22;
+  color: white;
 }
 
 #edit:hover,
@@ -78,5 +83,22 @@ td {
   align-items: center;
   justify-content: center;
   margin-left: 25px;
-  background-color: #FF4930FF;
+  color: white;
+  background-color: #bd0d22;
+}
+
+@media only screen and (max-width: 1000px) {
+  h1 {
+    font-size: 18px;
+  }
+
+  form {
+    font-size: 15px;
+    grid-gap: 15px;
+  }
+
+  button {
+    align-items: center;
+    justify-content: center;
+  }
 }

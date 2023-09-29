@@ -16,63 +16,104 @@ body {
   font-size: 18px;
 }
 
-i {
-  font-size: 50px;
-}
+  i {
+    font-size: 50px;
+  }
 
-#home {
-  font-size: 28px;
-}
+  #home-btn {
+    position: absolute;
+    right: 87%;
+  }
 
-body>main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #6BBBFC;
-  color: black;
-  padding: 20px;
-}
+  #home {
+    font-size: 33px;
+  }
 
-body>main h1:first-child {
-  margin-bottom: 50px;
-}
+  body>main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding: 20px;
+  }
 
-body>nav {
-  grid-area: nav;
-  background-color: #B5DDFD;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 0 30px;
-}
+  body>main h1:first-child {
+    margin-bottom: 50px;
+  }
 
-nav>i {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-}
+  body>nav {
+    grid-area: nav;
+    background-color: #B5DDFD;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px 0 30px;
+  }
 
-nav>a {
-  margin: 20px;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  color: #000000;
-  font-weight: bolder;
-}
+  nav>i {
+    width: 34px;
+    object-fit: contain;
+    margin-right: auto;
+  }
 
-nav>a:visited {
-  color: #424748;
-}
+  nav>a {
+    margin: 20px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bolder;
+  }
 
-nav>a:hover {
-  color: white;
-  background-color: #424748;
-}
+  nav>a:visited {
+    color: #424748;
+  }
 
-#home-page-avatar,
-img {
-  position: relative;
-  width: 53px;
+  nav>a:hover {
+    color: white;
+    background-color: #424748;
+  }
+
+  #home-page-avatar,
+  img {
+    position: relative;
+    width: 53px;
+  }
+  #emp-image{
+    width: 100%;
+    height: 100%;
+    position: relative;;
+  }
+
+@media only screen and (max-width: 1000px) {
+  body {
+    font-size: 18px;
+  }
+
+  #home-btn {
+    position: relative;
+    right: auto;
+  }
+
+  #home {
+    font-size: 30px;
+  }
+
+  i {
+    font-size: 30px;
+  }
+
+  img {
+    position: absolute;
+    width: 23px;
+  }
+
+  body>nav {
+    justify-content: space-evenly;
+  }
+  #emp-image{
+    width: 70%;
+    height: 100%;
+  }
 }
