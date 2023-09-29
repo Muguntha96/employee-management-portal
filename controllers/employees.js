@@ -15,6 +15,17 @@ function index(req, res) {
       res.redirect('/employees')
     })
 }
+function filterSearch(req, res) {
+  const query = {}
+  query[req.query.filterField] = req.query.filterValue
+  Employee.find(query)
+    .then(employees => {
+      res.render('employees/index', {
+        employees,
+        title: "List of Employees"
+      })
+    })
+}
 
 function newEmployee(req, res) {
   let maxDate = new Date(new Date().setFullYear(new Date().getFullYear() - 18))
@@ -30,7 +41,7 @@ function createEmployee(req, res) {
   req.body.phoneNumber = req.body.phoneNumber.replaceAll('-', '')
   req.body.manager = req.user.profile._id
   Employee.create(req.body)
-    .then(employee => {
+    .then(() => {
       res.redirect('/employees')
     })
     .catch(err => {
@@ -150,7 +161,7 @@ function createReview(req, res) {
       console.log(err)
       res.redirect('/employees')
     })
-} 
+}
 
 function deleteReview(req, res) {
   let empId = req.params.employeeId
@@ -173,6 +184,7 @@ function deleteReview(req, res) {
 
 export {
   index,
+  filterSearch,
   newEmployee as new,
   createEmployee as create,
   showEmployee as show,

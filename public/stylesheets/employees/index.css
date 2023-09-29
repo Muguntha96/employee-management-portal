@@ -30,3 +30,18 @@ a {
 a:visited {
   color: orangered;
 }
+#filter,input{
+  font-family: 'Croissant One', cursive;
+}
+#filter-search{
+  padding: 10px;
+  margin: 10px;
+}
+button{
+  font-family: 'Croissant One', cursive;
+  background-color: green;
+}
+button:hover{
+  background-color: #424748;
+  color: white;
+}
